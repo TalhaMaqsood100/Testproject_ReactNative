@@ -9,25 +9,8 @@ import { Text, Center, Box, View } from "native-base";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import OrganizationCard from "../components/OrganizationCard";
 import PullRequestCard from "../components/PullRequestCard";
+import useFetch from "../customHook/useFetch";
 
-const data= {
-  id:123, 
-  nickname: "example", 
-  contributions_count: 12, 
-  github_profile: "abc.com",
-  organisations: {
-    login: "login",
-    avatar_url: "avatar_url",
-    link:"link",
-  },
-  pull_requests: {
-    title: "title",
-    issue_url:"issue_url",
-    repo_name:"repo_name",
-    body:"body",
-    CreatedAt:"CreatedAt"
-  }
-}
 
 const UserScreen = () => {
   const [currentScreen, setScreen] = useState("basic_info");
@@ -37,7 +20,7 @@ const UserScreen = () => {
     params: { name },
   } = useRoute();
 
-  // const [data, getRefreshedData] = useFetch(`users/${name}`);
+  const [data, getRefreshedData] = useFetch(`users/${name}`);
 
   return (
     <Box rounded="lg" bg="gray.100">
