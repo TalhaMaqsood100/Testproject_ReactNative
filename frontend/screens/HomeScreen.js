@@ -3,10 +3,12 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { ScrollView } from "native-base";
 import { Center, Heading, Box } from "native-base";
 import UserCard from "../components/UserCard";
+import useFetch from "../customHook/useFetch";
 
-const list= require('../data.json')
+const URL = "users";
 
 const HomeScreen = () => {
+  const [list] = useFetch(URL);
 
   return (
     <SafeAreaView>
