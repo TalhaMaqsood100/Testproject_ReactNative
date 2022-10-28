@@ -7,6 +7,8 @@ import { ArrowLeftIcon } from "react-native-heroicons/outline";
 import { Text, Center, Box, View } from "native-base";
 
 import { TouchableOpacity } from "react-native-gesture-handler";
+import OrganizationCard from "../components/OrganizationCard";
+import PullRequestCard from "../components/PullRequestCard";
 
 const data= {
   id:123, 
@@ -95,12 +97,23 @@ const UserScreen = () => {
       </Box>
 
       <View>
-        <BasicInfoCard
-          key={data.id}
-          name={data.nickname}
-          profile={data.github_profile}
-          contributions_count={data.contributions_count}
-        />
+        {currentScreen == "basic_info" ? (
+          <BasicInfoCard
+            key={data.id}
+            name={data.nickname}
+            profile={data.github_profile}
+            contributions_count={data.contributions_count}
+          />
+        ) : currentScreen == "organisations" ? (
+          <>
+            <OrganizationCard
+              key={data.id}
+              organisations={data.organisations}
+            />
+          </>
+        ) : (
+          <PullRequestCard key={data.id} pull_requests={data.pull_requests} />
+        )}
       </View>
     </Box>
   );
