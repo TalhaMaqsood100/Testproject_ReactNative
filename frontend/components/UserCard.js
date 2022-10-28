@@ -18,6 +18,7 @@ const UserCard = ({ name, profile }) => {
       borderColor="gray.400"
     >
       <TouchableOpacity
+        onPress={() => navigation.navigate("UserScreen", { name })}
       >
         <Text fontWeight="medium" fontSize={20} color="#0c4a6e" py="1">
           {name}

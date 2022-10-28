@@ -7,6 +7,7 @@ import {
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import HomeScreen from "./screens/HomeScreen";
+import UserScreen from "./screens/UserScreen";
 
 const Stack = createStackNavigator();
 const config = {
@@ -24,6 +25,13 @@ export default function App() {
           <Stack.Screen
             name="HomeScreen"
             component={HomeScreen}
+            options={{
+              headerShown: false,
+            }}
+          />
+          <Stack.Screen
+            name="UserScreen"
+            component={UserScreen}
             options={{
               headerShown: false,
             }}
